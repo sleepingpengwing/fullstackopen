@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+  const [count, setCount] = useState<number>(0)
+  const now: string = (new Date()).toLocaleDateString()
 
   return (
     <>
@@ -22,7 +22,7 @@ function App() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Todays date: {now}
         </p>
       </div>
       <p className="read-the-docs">
@@ -31,5 +31,3 @@ function App() {
     </>
   )
 }
-
-export default App
