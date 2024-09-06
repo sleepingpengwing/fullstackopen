@@ -1,9 +1,26 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { useState } from 'react'
+/* 
+  1. Write down the function
+    1.1 We need a button
+    1.2 We need the button function
+    1.3 We need the button value
+
+  2. Figure out what the function returns
+    2.1 return a button
+
+  3. Use function in app
+*/
+
+const Button = () => {
+  const [count, setcount] = useState(0)
+  return (
+    <button onClick={() => {setcount(count + 1)}}>Count is {count} </button>
+  )
+}
 
 export const App = () => {
-  const [count, setCount] = useState<number>(0)
   const now: string = (new Date()).toLocaleDateString()
 
   return (
@@ -17,10 +34,8 @@ export const App = () => {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <Button />
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <p>
           Todays date: {now}
         </p>
