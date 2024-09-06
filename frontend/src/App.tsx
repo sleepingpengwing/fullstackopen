@@ -1,6 +1,6 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { useState } from 'react'
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import { useState } from "react";
 /* 
   1. Write down the function
     1.1 We need a button
@@ -13,15 +13,21 @@ import { useState } from 'react'
   3. Use function in app
 */
 
-const Button = () => {
-  const [count, setcount] = useState(0)
+const Button = (): JSX.Element => {
+  const [count, setcount] = useState<number>(0);
   return (
-    <button onClick={() => {setcount(count + 1)}}>Count is {count} </button>
-  )
-}
+    <button
+      onClick={() => {
+        setcount(count + 1);
+      }}
+    >
+      Count is {count}{" "}
+    </button>
+  );
+};
 
 export const App = () => {
-  const now: string = (new Date()).toLocaleDateString()
+  const now: string = new Date().toLocaleDateString();
 
   return (
     <>
@@ -36,13 +42,11 @@ export const App = () => {
       <h1>Vite + React</h1>
       <Button />
       <div className="card">
-        <p>
-          Todays date: {now}
-        </p>
+        <p>Todays date: {now}</p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
-}
+  );
+};
