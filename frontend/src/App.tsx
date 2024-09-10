@@ -1,6 +1,7 @@
 import reactLogo from "./assets/react.svg";
+import { HelloProps } from "./models";
 import viteLogo from "/vite.svg";
-import { JSXElementConstructor, ReactElement, ReactNode, ReactPortal, useState } from "react";
+import { useState } from "react";
 /* 
   1. Write down the function
     1.1 We need a button
@@ -15,36 +16,38 @@ import { JSXElementConstructor, ReactElement, ReactNode, ReactPortal, useState }
 const Footer = () => {
   return (
     <div>
-      greeting app created by <a href='https://github.com/mluukkai'>mluukkai</a>
+      greeting app created by{" "}
+      <a href="https://github.com/sleepingpengwing">sleepingpengwing</a>
     </div>
-  )
-}
+  );
+};
 function Button(): JSX.Element {
   const [count, setcount] = useState<number>(0);
   return (
     <button
       onClick={() => {
         setcount(count + 1);
-      } }
+      }}
     >
       Count is {count}{" "}
     </button>
   );
 }
-const Hello = (props: { name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; age: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; }) => {
-  console.log(props)
+const Hello = (props: HelloProps) => {
+  const { name, age, className } = props;
+
   return (
-    <div>
+    <div className={className}>
       <p>
-        Hello world {props.name}, you are {props.age} years old
+        Hello world {name}, you are {age} years old
       </p>
     </div>
-  )
-}
+  );
+};
 export const App = () => {
   const now: string = new Date().toLocaleDateString();
-  const name = 'Peter'
-  const age = 10
+  const name = "Peter";
+  const age = 10;
 
   return (
     <>
@@ -66,7 +69,7 @@ export const App = () => {
       </p>
       <div>
         <h1>Greetings</h1>
-        <Hello name='Maya' age={26 + 10} />
+        <Hello name="Maya" age={26 + 10} className="Eagles" />
         <Hello name={name} age={age} />
         <Footer />
       </div>
